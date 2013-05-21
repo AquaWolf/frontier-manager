@@ -1,0 +1,2 @@
+serviceClass: de.waldmeisterundfreunde.frontiermanger.client.GreetingService
+path: 28C84A56E192B15D8C8725394A26CA73.gwt.rpc
