@@ -14,7 +14,11 @@ import java.util.Date;
 @Entity
 public class Keep {
 
-public Keep(String name, Faction faction, Relic relic, Date captueredSince,
+	public Keep(){
+
+	}
+	
+	public Keep(String name, Faction faction, Relic relic, Date captueredSince,
 			Alliance alliance) {
 		super();
 		this.name = name;
@@ -24,55 +28,55 @@ public Keep(String name, Faction faction, Relic relic, Date captueredSince,
 		this.alliance = alliance;
 	}
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
 
-@Enumerated(EnumType.STRING)
-private Faction faction;
-@Enumerated(EnumType.STRING)
-private Relic relic;
-@Temporal(TemporalType.DATE)
-private Date captueredSince;
-private Alliance alliance;
+	@Enumerated(EnumType.STRING)
+	private Faction faction;
+	@Enumerated(EnumType.STRING)
+	private Relic relic;
+	@Temporal(TemporalType.DATE)
+	private Date captueredSince;
+	private Alliance alliance;
 
-public Long getId() {
-	return id;
-}
-public void setId(Long id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public Faction getFaction() {
-	return faction;
-}
-public void setFaction(Faction faction) {
-	this.faction = faction;
-}
-public Relic getRelic() {
-	return relic;
-}
-public void setRelic(Relic relic) {
-	this.relic = relic;
-}
-public Date getCaptueredSince() {
-	return captueredSince;
-}
-public void setCaptueredSince(Date captueredSince) {
-	this.captueredSince = captueredSince;
-}
-public Alliance getAlliance() {
-	return alliance;
-}
-public void setAlliance(Alliance alliance) {
-	this.alliance = alliance;
-}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Faction getFaction() {
+		return faction;
+	}
+	public void setFaction(Faction faction) {
+		this.faction = faction;
+	}
+	public Relic getRelic() {
+		return relic;
+	}
+	public void setRelic(Relic relic) {
+		this.relic = relic;
+	}
+	public Date getCaptueredSince() {
+		return captueredSince;
+	}
+	public void setCaptueredSince(Date captueredSince) {
+		this.captueredSince = captueredSince;
+	}
+	public Alliance getAlliance() {
+		return alliance;
+	}
+	public void setAlliance(Alliance alliance) {
+		this.alliance = alliance;
+	}
 
 
 }
