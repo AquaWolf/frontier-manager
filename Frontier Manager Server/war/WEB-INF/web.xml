@@ -16,6 +16,16 @@
     <url-pattern>/frontier_manager/greet</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <servlet-name>tasksServlet</servlet-name>
+    <servlet-class>de.waldmeisterundfreunde.frontiermanger.client.Tasks</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>tasksServlet</servlet-name>
+    <url-pattern>/frontier_manager/tasks</url-pattern>
+  </servlet-mapping>
+ 
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Frontier_Manager.html</welcome-file>

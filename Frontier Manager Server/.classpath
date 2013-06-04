@@ -6,5 +6,10 @@
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="JTIDY_LIB"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jtidy-r938.jar" sourcepath="C:/Users/Dirk 2.0/Downloads/jtidy-r938/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/Dirk 2.0/Downloads/jtidy-r938/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

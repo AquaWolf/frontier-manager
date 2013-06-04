@@ -7,19 +7,22 @@ import javax.persistence.Id;
 
 @Entity
 public class Alliance {
-	
+
 	public Alliance(String name, String emblemeUrl) {
 		super();
 		this.name = name;
 		this.emblemeUrl = emblemeUrl;
 	}
-	
+
+	public Alliance() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String emblemeUrl;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -38,5 +41,5 @@ public class Alliance {
 	public void setEmblemeUrl(String emblemeUrl) {
 		this.emblemeUrl = emblemeUrl;
 	}
-	
+
 }
