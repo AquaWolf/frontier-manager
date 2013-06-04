@@ -79,7 +79,9 @@ public class BlutrauschWarMapContentHandler implements ContentHandler {
 		} else if (localName.equals("img")){
 			isInImg = true;
 			if(currentAlliance != null && isInLi && isInA && isInSpan){
-
+				if(atts.getLocalName(0).equals("src")){
+					currentAlliance.setEmblemeUrl(atts.getValue(0));
+				}
 			}
 		} 
 
@@ -94,12 +96,21 @@ public class BlutrauschWarMapContentHandler implements ContentHandler {
 		if (localName.equals("li")) {
 			isInLi = false;
 		} else if (localName.equals("a")){
+			if(currentAlliance != null){
+				currentKeep.setAlliance(currentAlliance);
+			}
 			isInA = false;
 		} else if (localName.equals("span")){
 			if(isInLi && isInA){
 				System.out.println(currentCharacters.toString());
-				String[] keepInfo = currentCharacters.split(".\\<br\\>., 3");
-				System.out.println(keepInfo[1].toString());
+				String[] keepInfo = ((currentCharacters.split(".\\(",2))[1].split("\\)",2));
+				isRelicKeep = keepInfo[0].contains("Relickeep");
+				if (isRelicKeep){
+					keepInfo = ((currentCharacters.split(".\"",2))[1].split("\"",2));
+					//look if Keep owns own relic
+					
+				}
+				System.out.println();
 			}
 			isInSpan = false;
 		} else if (localName.equals("b")){
