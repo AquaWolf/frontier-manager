@@ -1,5 +1,8 @@
 package de.waldmeisterundfreunde.frontiermanger.parser;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.swing.text.DefaultEditorKit.CutAction;
 
 import org.xml.sax.Attributes;
@@ -29,7 +32,7 @@ public class BlutrauschWarMapContentHandler implements ContentHandler {
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		// TODO Auto-generated method stub
 		currentCharacters += new String(ch, start, length);
-		
+
 
 	}
 
@@ -107,10 +110,30 @@ public class BlutrauschWarMapContentHandler implements ContentHandler {
 				isRelicKeep = keepInfo[0].contains("Relickeep");
 				if (isRelicKeep){
 					keepInfo = ((currentCharacters.split(".\"",2))[1].split("\"",2));
-					//look if Keep owns own relic
+					String homeRelic = keepInfo[0];
+					keepInfo = (keepInfo[1]).split("\\.",2);
+					String homeRelicInfo = keepInfo[0].replace("\n", "").replaceAll("\\s{2,}", "");
+					List<String> ownedRelics = new LinkedList<String>();
+					if(homeRelicInfo.equals("is on its place")){
+						ownedRelics.add(homeRelic);
+					}
+					if (keepInfo[1].contains("Captured relics:")){
+
+						keepInfo = keepInfo[1].replaceAll("\\n", "").split("\\s{2,}");
+						boolean isInForeignRelics = false;
+						for(String info : keepInfo){
+							if(isInForeignRelics && !info.isEmpty()){
+								ownedRelics.add(info);
+							}
+							isInForeignRelics = (info.equals("Captured relics:")|isInForeignRelics);
+
+
+						}
+					}
+					//here are all owned relics in the ownedRelcis List
 					
 				}
-				System.out.println();
+				
 			}
 			isInSpan = false;
 		} else if (localName.equals("b")){
